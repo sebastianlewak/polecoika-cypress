@@ -38,7 +38,9 @@ Krok 2:
 
 - Klikamy w "Clone git repository"
 
-![VSC1](PoleCOIka Cypress\docs\vsc1.jpg)
+<p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress0.png" alt="Opis zdjęcia" width="50%">
+</p>
 
 Krok 3:
 
