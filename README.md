@@ -39,7 +39,7 @@ Krok 2:
 - Klikamy w "Clone git repository"
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress0.png" alt="Opis zdjęcia" width="50%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc1.jpg" width="70%">
 </p>
 
 Krok 3:
@@ -50,7 +50,9 @@ Krok 3:
   git clone https://github.com/sebastianlewak/custom-form.git
 ```
 
-![VSC1](C:\Users\sebas\Desktop\PoleCOIka Cypress\docs\vsc2.jpg)
+<p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc2.jpg" width="70%">
+</p>
 
 Krok 4:
 
@@ -82,22 +84,30 @@ Krok 2:
 
 - Wybieramy "E2E Testing"
 
-![VSC1](C:\Users\sebas\Desktop\PoleCOIka Cypress\docs\cypress0.jpg)
+<p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress0.png" width="70%">
+</p>
 
 Krok 3:
 
 - Pojawi nam się okno Cypressa, wybieramy w nim przeglądarkę na zostaną odpalone nasze testy.
 
-  ![VSC1](C:\Users\sebas\Desktop\PoleCOIka Cypress\docs\cypress1.jpg)
+ <p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress1.png" width="70%">
+</p>
 
 Krok 4:
 
 - Zostanie odtworzone nowe okno przeglądarki, w którym widnieją wszystkie nasze testy. Klikamy znajdujący się w nim test
 
-![VSC1](C:\Users\sebas\Desktop\PoleCOIka Cypress\docs\cypress2.jpg)
+<p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress2.png" width="70%">
+</p>
 
 Krok 5:
 
 - Sprawdzamy czy test przebiegł pomyślnie, jeżeli wygląda to tak jak poniżej możemy zacząć z pisaniem naszych własnych testów.
 
-![VSC1](C:\Users\sebas\Desktop\PoleCOIka Cypress\docs\cypress3.jpg)
+<p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress3.png" width="70%">
+</p>
