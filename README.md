@@ -38,7 +38,7 @@ Krok 2:
 
 - Klikamy w "Clone git repository"
 
-![VSC1](C:\Users\sebas\Desktop\PoleCOIka Cypress\docs\vsc1.jpg)
+![VSC1](PoleCOIka Cypress\docs\vsc1.jpg)
 
 Krok 3:
 
