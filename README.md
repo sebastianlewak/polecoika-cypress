@@ -1,42 +1,42 @@
 # Wymagania wstepne
 
-1. Edytor kodu
+## 1. Edytor kodu
 
-Edytor kodu to program, który pozwala przeglądać i edytować pliki projektu.
+Edytor kodu to program, który umożliwia przeglądanie i edytowanie plików projektu. Wybór edytora zależy od Was – jednymi z najpopularniejszych są Visual Studio Code oraz VIM.
 
-Jaki wybierzecie to zależy od was, jedne z najpopularniejszych to Visual Studio Code lub VIM.
+Aby zainstalować edytor, wejdź na stronę producenta wybranego programu i postępuj zgodnie z instrukcjami instalacji.
 
-Do instalacji przejdz na stronę producenta i postępuj zgodnie z instrukcją.
+## 2. Node.js
 
-2. Node.js
-
-Node.js to środowisko wykonawcze JavaScript, które umożliwia uruchamianie komend potrzebnych do działania Cypressa.
+Node.js to środowisko uruchomieniowe JavaScript, które umożliwia korzystanie między innymi z komend potrzebnych do działania Cypressa.
 
 - Wejdź na https://nodejs.org.
 
 - Wybierz zalecaną wersję.
 
-- Po pobraniu uruchom instalator i klikaj „Dalej”, zostawiając domyślne ustawienia.
+- Po pobraniu uruchom instalator i klikaj „Dalej”, pozostawiając domyślne ustawienia.
 
 Weryfikacja:
 
 Po zakończeniu instalacji, aby upewnić się, że Node.js został poprawnie zainstalowany, otwórz wiersz poleceń (cmd/terminal) i wpisz:
 
+```console
 node -v
+```
 
-Powinieneś zobaczyć wersję Node.js
+Powinieneś zobaczyć wersję Node.js, co potwierdzi poprawność instalacji.
 
-3. Instalacja projektu
+## 3. Instalacja projektu
 
-Pokażę to krok po kroku na podstawie Visual Studio Code.
+Przykład instalacji projektu pokaże na bazie Visual Studio Code.
 
 Krok 1:
 
-- Odpalaamy nowe okno VSC.
+- Otwórz nowe okno Visual Studio Code.
 
 Krok 2:
 
-- Klikamy w "Clone git repository"
+- Kliknij opcję "Clone Git Repository".
 
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc1.jpg" width="70%">
@@ -44,37 +44,36 @@ Krok 2:
 
 Krok 3:
 
-- Pojawi sie okienka w wyszukiwarce VSC w które wklejamy link do naszego projektu:
+- W okienku wyszukiwania VSC wklej link do repozytorium projektu:
 
 ```console
   git clone https://github.com/sebastianlewak/custom-form.git
 ```
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc2.jpg" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc2.png" width="70%">
 </p>
 
 Krok 4:
 
-- Wybieramy miejsce w którym chcemy aby znajdował się nasz projekt lokalnie.
+- Wybierz lokalizację na dysku, gdzie projekt ma być zapisany.
 
 Krok 5:
 
-- Odpalamy terminal i wpisujemy następujące komendy:
+- Otwórz terminal VSC i wpisz następującą komendę, aby zainstalować wszystkie potrzebne zależności:
 
 ```console
   npm install
 ```
 
-4. Odpalenie pierwszego testu.
+## 4. Uruchomienie pierwszego testu.
 
-W ramach sprawdzenia czy wszystko działa tak jak powinno napisałem test na podstawie strony www.coi.gov.pl.
-
-Test wyszukuję na stronie element HTML o tagu h1, i sprawdza czy zawiera on odpowiedni tekst.
+W ramach sprawdzenia, czy wszystko działa tak, jak powinno, napisałem test na podstawie strony www.coi.gov.pl.
+Test wyszukuje na stronie element HTML o tagu h1 i sprawdza, czy zawiera on odpowiedni tekst.
 
 Krok 1:
 
-- W terminalu wpisujemy komende, która odpali nam Cypressa. Upewnijcie się, że znajdujecie się w odpowiednim folderze.
+- W terminalu wpisz komendę, która uruchomi Cypressa. Upewnij się, że znajdujesz się w odpowiednim folderze projektu.
 
 ```console
   npx cypress open
@@ -90,7 +89,7 @@ Krok 2:
 
 Krok 3:
 
-- Pojawi nam się okno Cypressa, wybieramy w nim przeglądarkę na zostaną odpalone nasze testy.
+- Pojawi się okno Cypressa. Wybierz przeglądarkę, na której mają zostać uruchomione testy.
 
  <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress1.png" width="70%">
@@ -98,7 +97,7 @@ Krok 3:
 
 Krok 4:
 
-- Zostanie odtworzone nowe okno przeglądarki, w którym widnieją wszystkie nasze testy. Klikamy znajdujący się w nim test
+- Zostanie otwarte nowe okno przeglądarki, gdzie znajdziesz listę dostępnych testów. Kliknij test, który znajduje się na liście..
 
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress2.png" width="70%">
@@ -106,7 +105,7 @@ Krok 4:
 
 Krok 5:
 
-- Sprawdzamy czy test przebiegł pomyślnie, jeżeli wygląda to tak jak poniżej możemy zacząć z pisaniem naszych własnych testów.
+- Sprawdź wynik testu. Jeśli test zakończył się pomyślnie (powinien wyglądać jak poniżej).
 
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress3.png" width="70%">
