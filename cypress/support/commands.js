@@ -1,14 +1,12 @@
-{/* <reference types="cypress" />;
+// declare namespace Cypress {
+//   interface Chainable {
+//     getData(dataTestAttribute: string): Chainable<JQuery<HTMLElement>>;
+//   }
+// }
 
-declare namespace Cypress {
-  interface Chainable {
-    getData(dataTestAttribute: string): Chainable<JQuery<HTMLElement>>;
-  }
-}
-
-Cypress.Commands.add("getData", (selector) => {
-  return cy.get(`[data-test=${selector}]`);
-}); */}
+// Cypress.Commands.add("getData", (selector) => {
+//   return cy.get(`[data-test=${selector}]`);
+// });
 
 // ***********************************************
 // This example commands.js shows you how to
