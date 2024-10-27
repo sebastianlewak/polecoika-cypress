@@ -47,7 +47,7 @@ Krok 3:
 - W okienku wyszukiwania VSC wklej link do repozytorium projektu:
 
 ```console
-  git clone https://github.com/sebastianlewak/custom-form.git
+  https://github.com/sebastianlewak/polecoika-cypress.git
 ```
 
 <p align="center">
