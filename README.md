@@ -47,7 +47,7 @@ Krok 3:
 - Kliknij opcję "Clone Git Repository".
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc1.jpg" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc1.jpg">
 </p>
 
 Krok 4:
@@ -59,7 +59,7 @@ Krok 4:
 ```
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc2.png" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc2.png">
 </p>
 
 Krok 5:
@@ -92,7 +92,7 @@ Krok 2:
 - Wybieramy "E2E Testing"
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress0.png" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress0.png">
 </p>
 
 Krok 3:
@@ -100,7 +100,7 @@ Krok 3:
 - Pojawi się okno Cypressa. Wybierz przeglądarkę, na której mają zostać uruchomione testy.
 
  <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress1.png" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress1.png">
 </p>
 
 Krok 4:
@@ -108,7 +108,7 @@ Krok 4:
 - Zostanie otwarte nowe okno przeglądarki, gdzie znajdziesz listę dostępnych testów. Kliknij test, który znajduje się na liście..
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress2.png" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress2.png">
 </p>
 
 Krok 5:
@@ -116,7 +116,7 @@ Krok 5:
 - Sprawdź wynik testu. Jeśli test zakończył się pomyślnie (powinien wyglądać jak poniżej).
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress3.png" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress3.png">
 </p>
 
 ## Do nauki pisania testów, polecam oficjalną dokumentacje Cypressa: https://docs.cypress.io/app/get-started/why-cypress
