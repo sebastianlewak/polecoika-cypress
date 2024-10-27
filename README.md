@@ -10,7 +10,7 @@ Aby zainstalować edytor, wejdź na stronę producenta wybranego programu i post
 
 Node.js to środowisko uruchomieniowe JavaScript, które umożliwia korzystanie między innymi z komend potrzebnych do działania Cypressa.
 
-- Wejdź na https://nodejs.org.
+- Wejdź na https://nodejs.org/en/download/prebuilt-installer.
 
 - Wybierz zalecaną wersję.
 
@@ -36,13 +36,21 @@ Krok 1:
 
 Krok 2:
 
+- Jeżeli masz zainstalowanego GITa na komputerze przejdź do kolejnego kroku. Otwórz zakładkę zaznaczoną na screenie poniżej, kliknij pobieranie. Zostaniesz przeniesiony na strone, dalej postępuj wedle instrukcji.
+
+<p align="center">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc3.jpg" width="70%">
+</p>
+
+Krok 3:
+
 - Kliknij opcję "Clone Git Repository".
 
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc1.jpg" width="70%">
 </p>
 
-Krok 3:
+Krok 4:
 
 - W okienku wyszukiwania VSC wklej link do repozytorium projektu:
 
@@ -54,11 +62,11 @@ Krok 3:
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc2.png" width="70%">
 </p>
 
-Krok 4:
+Krok 5:
 
 - Wybierz lokalizację na dysku, gdzie projekt ma być zapisany.
 
-Krok 5:
+Krok 6:
 
 - Otwórz terminal VSC i wpisz następującą komendę, aby zainstalować wszystkie potrzebne zależności:
 
@@ -110,3 +118,5 @@ Krok 5:
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/cypress3.png" width="70%">
 </p>
+
+## Do nauki pisania testów, polecam oficjalną dokumentacje Cypressa: https://docs.cypress.io/app/get-started/why-cypress
