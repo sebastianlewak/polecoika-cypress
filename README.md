@@ -68,7 +68,7 @@ Krok 5:
 
 Krok 6:
 
-- Otwórz terminal VSC i wpisz następującą komendę, aby zainstalować wszystkie potrzebne zależności:
+- Otwórz terminal VSC(ctr+j) i wpisz następującą komendę, aby zainstalować wszystkie potrzebne zależności:
 
 ```console
   npm install
