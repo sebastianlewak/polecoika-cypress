@@ -36,7 +36,7 @@ Krok 1:
 
 Krok 2:
 
-- Otwórz zakładkę zaznaczoną na screenie poniżej, kliknij pobieranie. Zostaniesz przeniesiony na strone, dalej postępuj wedle instrukcji.
+- Otwórz zakładkę zaznaczoną na poniższym zrzucie ekranu i kliknij pobieranie. Zostaniesz przeniesiony na stronę, na której postępuj zgodnie z instrukcjami.
 
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc3.png">
