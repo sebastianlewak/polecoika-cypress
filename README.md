@@ -1,4 +1,4 @@
-# Wymagania wstepne
+# Wymagania wstępne
 
 ## 1. Edytor kodu
 
