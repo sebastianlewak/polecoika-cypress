@@ -44,7 +44,7 @@ Krok 2:
 
 Krok 3:
 
-- Kliknij opcję "Clone Git Repository".
+- Wróć na stronę główną Visual Studio Code i kliknij opcję "Clone Git Repository".
 
 <p align="center">
   <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc1.jpg">
