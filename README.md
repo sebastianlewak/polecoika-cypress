@@ -36,10 +36,10 @@ Krok 1:
 
 Krok 2:
 
-- Jeżeli masz zainstalowanego GITa na komputerze przejdź do kolejnego kroku. Otwórz zakładkę zaznaczoną na screenie poniżej, kliknij pobieranie. Zostaniesz przeniesiony na strone, dalej postępuj wedle instrukcji.
+- Otwórz zakładkę zaznaczoną na screenie poniżej, kliknij pobieranie. Zostaniesz przeniesiony na strone, dalej postępuj wedle instrukcji.
 
 <p align="center">
-  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc3.png" width="70%">
+  <img src="https://github.com/sebastianlewak/polecoika-cypress/blob/main/docs/vsc3.png">
 </p>
 
 Krok 3:
