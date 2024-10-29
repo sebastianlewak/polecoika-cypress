@@ -1,3 +1,5 @@
+// /// <reference types="cypress" />
+
 // declare namespace Cypress {
 //   interface Chainable {
 //     getData(dataTestAttribute: string): Chainable<JQuery<HTMLElement>>;
