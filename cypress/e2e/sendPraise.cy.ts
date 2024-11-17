@@ -21,5 +21,8 @@ describe("Filling out the praise form", () => {
     cy.get("textarea").type("testtest");
 
     cy.get('button[type="submit"]').click();
+
+    cy.get(".gds-snackbar--success").should("be.visible").contains("Pochwała została wysłana");
+
   });
 });
