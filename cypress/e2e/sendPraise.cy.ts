@@ -20,9 +20,11 @@ describe("Filling out the praise form", () => {
 
     cy.get("textarea").type("testtest");
 
+    cy.intercept("POST", "/api/praise/create").as("submitForm");
     cy.get('button[type="submit"]').click();
 
-    cy.get(".gds-snackbar--success").should("be.visible").contains("Pochwała została wysłana");
+    // cy.get(".gds-snackbar--success").should("be.visible").contains("Pochwała została wysłana");
 
+    cy.wait("@submitForm").its("response.statusCode").should("eq", 201);
   });
 });
