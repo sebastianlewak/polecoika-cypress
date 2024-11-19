@@ -7,8 +7,8 @@ export default defineConfig({
     viewportWidth: 1600,
     viewportHeight: 1200,
     env: {
-      USERNAME: "testhr",
-      PASSWORD: "testhr",
+      USERNAME: "user6",
+      PASSWORD: "user6pass",
     },
 
     setupNodeEvents(on, config) {

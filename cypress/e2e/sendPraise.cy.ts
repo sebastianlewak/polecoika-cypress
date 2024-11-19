@@ -7,15 +7,15 @@ describe("Filling out the praise form", () => {
 
     loginPage.login("user8", "user8pass");
 
-    cy.get("#receiver").click();
+    cy.get("#receiver-select").click();
     cy.get('input[type="text"]').should("be.visible").type("ada");
 
     cy.get("span.select-option").click();
 
-    cy.get("input").eq(2).click();
+    cy.get("#project-select").click();
     cy.contains("span", "Ambasada Danych").click();
 
-    cy.get("input").eq(4).click();
+    cy.get("#competence-select").click();
     cy.contains("span", "Inicjatywa").click();
 
     cy.get("textarea").type("testtest");
