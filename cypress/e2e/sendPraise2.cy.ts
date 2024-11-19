@@ -1,10 +1,8 @@
-import LoginPage from "../pages/loginPage";
-
 describe("Filling out the praise form", () => {
   it("Filling out the praise form with correct data", () => {
-    const loginPage = new LoginPage();
+
     cy.visit("https://bcnowimy-gcfhebf4cefrchfs.z01.azurefd.net/praise");
-    loginPage.login("user8", "user8pass");
+    cy.login({login: 'user7', password: 'user7pass'});
 
     // wybierz odbiorcę
     cy.get("#receiver").click();
@@ -38,3 +36,5 @@ describe("Filling out the praise form", () => {
     cy.get(".gds-snackbar--success").should("be.visible").contains("Pochwała została wysłana");
   });
 });
+
+
