@@ -1,9 +1,8 @@
-
 describe("Filling out the praise form", () => {
   beforeEach(() => {
     cy.visit("/");
 
-    cy.login();
+    cy.login({ login: "user8", password: "user8pass" });
 
     cy.clearPraisesIfNeeded();
   });

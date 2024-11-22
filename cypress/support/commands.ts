@@ -91,7 +91,7 @@ Cypress.Commands.add("clearPraisesIfNeeded", () => {
             cy.contains("Profil pracowniczy").click();
             cy.contains("Wyloguj").click();
 
-            cy.login();
+            cy.login({ login: "user8", password: "user8pass" });
           });
         });
       }
