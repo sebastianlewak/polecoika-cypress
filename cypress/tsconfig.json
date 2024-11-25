@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es5", "dom"],
-    "types": ["cypress"]
+    "types": ["cypress", "node"]
   },
   "include": ["**/*.ts", "support/commands.ts", "e2e/login.cy.ts", "cypress/**/*.ts", "cypress/**/*.d.ts"]
 }

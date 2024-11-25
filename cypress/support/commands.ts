@@ -74,7 +74,7 @@ Cypress.Commands.add("clearPraisesIfNeeded", () => {
             expect(response.status).to.eq(200);
             const praises = response.body.content;
 
-            praises.forEach((praise) => {
+            praises.forEach((praise: any) => {
               if (praise.senderUser.id === Cypress.env("SENDER_USER_ID")) {
                 cy.request({
                   method: "DELETE",
@@ -91,7 +91,7 @@ Cypress.Commands.add("clearPraisesIfNeeded", () => {
             cy.contains("Profil pracowniczy").click();
             cy.contains("Wyloguj").click();
 
-            cy.login({ login: "user8", password: "user8pass" });
+            cy.login({ login: "user6", password: "user6pass" });
           });
         });
       }
