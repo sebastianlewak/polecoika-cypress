@@ -1,29 +1,58 @@
 describe("Filling out the praise form", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.fixture("testData").then((data) => {
+      cy.visit("/");
 
-    cy.login({ login: "user8", password: "user8pass" });
+      cy.login();
 
-    cy.clearPraisesIfNeeded();
+      cy.clearPraisesIfNeeded();
+
+      cy.get("#receiver-select").click();
+      cy.get('input[type="text"]').type(data.receiver);
+      cy.get("span.select-option").click();
+
+      cy.get("#project-select").click();
+      cy.contains("span", data.project).click();
+
+      cy.get("#competence-select").click();
+      cy.contains("span", data.competence).click();
+
+      cy.get("textarea").type(data.message);
+
+      cy.intercept("POST", "/api/praise/create").as("submitForm");
+      cy.get('button[type="submit"]').click();
+    });
   });
 
-  it("Filling out the praise form with correct data", () => {
-    cy.get("#receiver-select").click();
-    cy.get('input[type="text"]').should("be.visible").type("ada");
+  it("Should submit the praise form and return the correct response", () => {
+    cy.get("@submitForm").its("response.statusCode").should("eq", 201);
+  });
 
-    cy.get("span.select-option").click();
+  it("Should show a success message after submission", () => {
+    cy.get(".gds-snackbar__body__message")
+      .should("be.visible")
+      .and("contain", "Pochwała została wysłana.")
+      .then(() => {
+        cy.get(".gds-snackbar__body__message", { timeout: 5000 }).should("not.exist");
+      });
+  });
 
-    cy.get("#project-select").click();
-    cy.contains("span", "Ambasada Danych").click();
+  it("Check if the newly submitted praise appears on the main board", () => {
+    cy.wait("@submitForm").then((interception) => {
+      cy.wrap(interception.response.body.id).as("createdPraiseId");
+    });
 
-    cy.get("#competence-select").click();
-    cy.contains("span", "Inicjatywa").click();
+    cy.intercept("POST", "/api/praise/find?page=0&size=10").as("getPraises");
 
-    cy.get("textarea").type("CypressTest");
+    cy.visit("/");
 
-    cy.intercept("POST", "/api/praise/create").as("submitForm");
-    cy.get('button[type="submit"]').click();
+    cy.wait("@getPraises").then((interception) => {
+      const praiseIdList = interception.response.body.content;
 
-    cy.wait("@submitForm").its("response.statusCode").should("eq", 201);
+      cy.get("@createdPraiseId").then((createdPraiseId) => {
+        const praiseIdExists = praiseIdList.some((praise: any) => praise.id === createdPraiseId);
+        expect(praiseIdExists).to.be.true;
+      });
+    });
   });
 });
