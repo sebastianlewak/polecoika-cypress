@@ -4,7 +4,7 @@ describe("sending praise with only the competence field filled in", () => {
       cy.visit("/");
   
       cy.login({ login: "user8", password: "user8pass" });
-      cy.intercept('GET', '/api/praise/competences').as('getCompetences');
+      cy.intercept('GET', '/api/praise/competences?size=1000').as('getCompetences');
       cy.clearPraisesIfNeeded();
     });
 
