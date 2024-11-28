@@ -1,44 +1,27 @@
 describe("Cancel deleting Praise from Main Board", () => {
-    it("should log in as admin and delete Praise from Main Board", () => {
-        const praiseID = "#praise-item-e7a12a30-dae4-4384-95cb-be6742d5269c"
+    it("should be possible to cancel deleting Praise from Main Board", () => {
+        const praiseID = "#praise-card-f1d8dbfa-b52b-47d2-a660-5a6ab5553ba8"
         cy.visit("/");
         cy.login({ login: "testhr", password: "testhr" });
-        cy.intercept('POST', '/api/praise/find').as('postPraiseFind');
+        cy.url().should("contains", "/");
+
+        //should verify API response
+        cy.intercept("POST", "'/api/praise/find*").as("postPraiseFind");
         cy.wait("@postPraiseFind").then((interception) => {
             expect(interception.response.statusCode).to.eq(200);
-        })
+        });
+
+        //should cancel deleting praise
+        cy.get("#praise-card-f1d8dbfa-b52b-47d2-a660-5a6ab5553ba8").should("be.visible");
+        cy.get("#praise-card-f1d8dbfa-b52b-47d2-a660-5a6ab5553ba8").find("#menu-trigger").click()
+        cy.get("#menu").should("be.visible");
+        cy.get("#menu").click();
+        cy.get("#dialog-cancel-button").should("be.visible");
+        cy.get("#dialog-cancel-button").click();
+
+        //should verify that the praise was not deleted
+        cy.intercept("DELETE", "/api/praise/*").as("deleteRequest");
+        cy.wait(5000);
+        cy.get("@deleteRequest.all").should("have.length", 0);
     });
-
-    it("should cancel deleting praise", () => {
-        cy.visit("/");
-        cy.get("#praise-card-e7a12a30-dae4-4384-95cb-be6742d5269c").each(($obj) => {
-            cy.wrap($obj).within(() => {
-                cy.get("#praise-item-e7a12a30-dae4-4384-95cb-be6742d5269c");
-                cy.wrap($obj).within(() => {
-                    cy.get("[data-test='praise-footer']");
-                    cy.wrap($obj).within(() => {
-                        cy.get("#praise-menu");
-                        cy.wrap($obj).within(() => {
-                            cy.get("#menu-trigger")
-                                .click();
-                            cy.get("#menu")
-                            cy.get("#dialog-cancel-button")
-                        })
-                    })
-                })
-            })
-        })
-
-        cy.get("body").then((body) => {
-            if (body.find("#praise-card-e7a12a30-dae4-4384-95cb-be6742d5269c").length > 0) {
-                cy.log("Test zakończył się sukcesem. Pochwała nie została usunięta.");
-                expect(true).to.be.true;
-            } else {
-                cy.log("Test się nie udał. Pochwała została błędnie usunięta.");
-                expect(true).to.be.false;
-            }
-        })
-
-    })
-
 });
