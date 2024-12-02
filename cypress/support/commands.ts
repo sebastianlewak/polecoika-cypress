@@ -98,4 +98,3 @@ Cypress.Commands.add("clearPraisesIfNeeded", () => {
     });
   cy.visit("/praise");
 });
-

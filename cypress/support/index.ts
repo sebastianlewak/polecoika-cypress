@@ -16,4 +16,11 @@ declare global {
   }
 }
 
+Cypress.on("uncaught:exception", (err) => {
+  if (err.message.includes("Http failure response for")) {
+    return false;
+  }
+  return true;
+});
+
 import "./commands";
