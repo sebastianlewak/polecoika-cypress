@@ -1,9 +1,8 @@
-
 describe("User Authentication", () => {
   it("should log in successfully", () => {
-
     cy.visit("/");
 
-    cy.login({login: 'user7', password: 'user7pass'});
+    loginPage.login('user8', 'user8pass');
+    cy.url().should("eq", "https://bcnowimy-gcfhebf4cefrchfs.z01.azurefd.net/");
   });
 });
