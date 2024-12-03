@@ -1,37 +1,100 @@
-// /// <reference types="cypress" />
+Cypress.Commands.add("enterUsername", (username: string) => {
+  cy.get("#username").type(username);
+});
 
-// declare namespace Cypress {
-//   interface Chainable {
-//     getData(dataTestAttribute: string): Chainable<JQuery<HTMLElement>>;
-//   }
-// }
+Cypress.Commands.add("enterPassword", (password: string) => {
+  cy.get("#password").type(password);
+});
 
-// Cypress.Commands.add("getData", (selector) => {
-//   return cy.get(`[data-test=${selector}]`);
-// });
+Cypress.Commands.add("submitLogin", () => {
+  cy.get("#kc-login").click();
+});
 
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("submitLogin", () => {
+  cy.get("#kc-login").click();
+});
+
+Cypress.Commands.add("submitLogin", () => {
+  cy.get("#kc-login").click();
+});
+
+//sign in
+
+Cypress.Commands.add("login", (options: { login?: string; password?: string; as?: string } = {}) => {
+  const defaultUsername = Cypress.env("USERNAME");
+  const defaultPassword = Cypress.env("PASSWORD");
+
+  const { login, password, as } = options;
+
+  const username = login || defaultUsername;
+  const userPassword = password || defaultPassword;
+
+  if (!username || !userPassword) {
+    throw new Error("Username or password is missing. Check environment variables or provide arguments.");
+  }
+
+  cy.enterUsername(username);
+  cy.enterPassword(userPassword);
+
+  if (as) {
+    cy.intercept("POST", "/auth/realms/nmwit/protocol/openid-connect/token").as(as);
+  }
+
+  cy.submitLogin();
+});
+
+// praise manager
+
+Cypress.Commands.add("clearPraisesIfNeeded", () => {
+  cy.get('div[data-test="card-content"] b')
+    .invoke("text")
+    .should("match", /^\d+$/)
+    .then((praiseCount) => {
+      if (parseInt(praiseCount) >= 10) {
+        cy.contains("Profil pracowniczy").click();
+        cy.contains("Wyloguj").click();
+
+        cy.login({ as: "getAdminToken", login: "testhr", password: "testhr" });
+
+        cy.wait("@getAdminToken").then((interception) => {
+          const { access_token } = interception.response.body;
+
+          cy.request({
+            method: "POST",
+            url: "/api/praise/find",
+            qs: {
+              page: 0,
+              size: 1000000,
+            },
+            body: {},
+            headers: {
+              Authorization: `Bearer ${access_token}`,
+            },
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            const praises = response.body.content;
+
+            praises.forEach((praise) => {
+              if (praise.senderUser.id === Cypress.env("SENDER_USER_ID")) {
+                cy.request({
+                  method: "DELETE",
+                  url: `/api/praise/${praise.id}`,
+                  headers: {
+                    Authorization: `Bearer ${access_token}`,
+                  },
+                }).then((deleteResponse) => {
+                  expect(deleteResponse.status).to.eq(204);
+                });
+              }
+            });
+
+            cy.contains("Profil pracowniczy").click();
+            cy.contains("Wyloguj").click();
+
+            cy.login();
+          });
+        });
+      }
+    });
+  cy.visit("/praise");
+});
