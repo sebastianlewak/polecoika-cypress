@@ -5,7 +5,7 @@ describe("Filling out the praise form only with recipient", () => {
       cy.login();
 
       cy.get("#receiver-select").click();
-      cy.get('input[type="text"]').type(data.receiver);
+      cy.get('input[role="search"]').type(data.receiver);
       cy.get("span.select-option").click();
       cy.get('button[type="submit"]').click();
     });

@@ -51,7 +51,7 @@ Cypress.Commands.add("clearPraisesIfNeeded", () => {
     .should("match", /^\d+$/)
     .then((praiseCount) => {
       if (parseInt(praiseCount) >= 10) {
-        cy.contains("Profil pracowniczy").click();
+        cy.get("div.user-name").click();
         cy.contains("Wyloguj").click();
 
         cy.login({ as: "getAdminToken", login: "testhr", password: "testhr" });
@@ -88,7 +88,7 @@ Cypress.Commands.add("clearPraisesIfNeeded", () => {
               }
             });
 
-            cy.contains("Profil pracowniczy").click();
+            cy.get("div.user-name").click();
             cy.contains("Wyloguj").click();
 
             cy.login();

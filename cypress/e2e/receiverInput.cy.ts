@@ -31,19 +31,19 @@ describe("Receiver Input", () => {
 
   it("should allow typing in receiver select", () => {
     cy.get("#receiver-select").click();
-    cy.get('input[type="text"]').type("Tomasz Kaczmarek").should("have.value", "Tomasz Kaczmarek");
+    cy.get('input[role="search"]').type("Tomasz Kaczmarek").should("have.value", "Tomasz Kaczmarek");
   });
 
   it("should select the receiver from the list", () => {
     cy.get("#receiver-select").click();
-    cy.get('input[type="text"]').type("Tomasz Kaczmarek");
+    cy.get('input[role="search"]').type("Tomasz Kaczmarek");
     cy.get("span.select-option").click();
     cy.get(".error-message").should("not.exist");
   });
 
   it("should show options when typing a partial name in the receiver select field", () => {
     cy.get("#receiver-select").click();
-    cy.get('input[type="text"]').type("Tom");
+    cy.get('input[role="search"]').type("Tom");
     cy.get(".select-option").should("be.visible");
   });
 });
