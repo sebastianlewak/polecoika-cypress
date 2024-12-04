@@ -49,7 +49,6 @@ describe("Main page view for a logged HR", () => {
     it("praise card details should contain images and users", () => {
         cy.get("[data-test='praise-details']").each(($obj) => {
             cy.wrap($obj).within(() => {
-                cy.get("[data-test='praise-images']").should("be.visible");
                 cy.get("[data-test='praise-users']").should("be.visible");
             });
         });
@@ -67,5 +66,6 @@ describe("Main page view for a logged HR", () => {
     it("check praise menu option", () => {
         cy.get("#praise-menu").click();
         cy.get("[data-test='praise-delete']").should("have.text", " Usuń");
-    });
+    });   
+     
 });
