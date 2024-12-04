@@ -18,30 +18,39 @@ Cypress.Commands.add("submitLogin", () => {
   cy.get("#kc-login").click();
 });
 
+Cypress.Commands.add("dataTest", (value) => {
+  return cy.get(`[data-test=${value}]`);
+});
+
 //sign in
 
-Cypress.Commands.add("login", (options: { login?: string; password?: string; as?: string } = {}) => {
-  const defaultUsername = Cypress.env("USERNAME");
-  const defaultPassword = Cypress.env("PASSWORD");
+Cypress.Commands.add(
+  "login",
+  (options: { login?: string; password?: string; as?: string } = {}) => {
+    const defaultUsername = Cypress.env("USERNAME");
+    const defaultPassword = Cypress.env("PASSWORD");
 
-  const { login, password, as } = options;
+    const { login, password, as } = options;
 
-  const username = login || defaultUsername;
-  const userPassword = password || defaultPassword;
+    const username = login || defaultUsername;
+    const userPassword = password || defaultPassword;
 
-  if (!username || !userPassword) {
-    throw new Error("Username or password is missing. Check environment variables or provide arguments.");
-  }
+    if (!username || !userPassword) {
+      throw new Error(
+        "Username or password is missing. Check environment variables or provide arguments.",
+      );
+    }
 
-  cy.enterUsername(username);
-  cy.enterPassword(userPassword);
+    cy.enterUsername(username);
+    cy.enterPassword(userPassword);
 
-  if (as) {
-    cy.intercept("POST", "/auth/realms/nmwit/protocol/openid-connect/token").as(as);
-  }
+    if (as) {
+      cy.intercept("POST", "/auth/realms/nmwit/protocol/openid-connect/token").as(as);
+    }
 
-  cy.submitLogin();
-});
+    cy.submitLogin();
+  },
+);
 
 // praise manager
 
