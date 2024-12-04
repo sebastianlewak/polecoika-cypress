@@ -9,6 +9,7 @@ export default defineConfig({
     env: {
       USERNAME: "user6",
       PASSWORD: "user6pass",
+      SENDER_USER_ID: "73287403-3cd8-4c9d-8467-eb8485863c34",
     },
 
     setupNodeEvents(on, config) {
