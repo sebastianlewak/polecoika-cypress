@@ -1,7 +1,8 @@
 describe("Search competence", () => {
     beforeEach(() => {
         cy.visit("/");
-        cy.login({login: 'zelislaw.zyzynski', password: 'zyzynski2024'});  
+        cy.login({login: 'zelislaw.zyzynski', password: 'zyzynski2024'}); 
+        cy.clearPraisesIfNeeded(); 
     });
 
     it("User should be able to search, select, and clear competence", () => {
@@ -9,10 +10,25 @@ describe("Search competence", () => {
         cy.get('[aria-label="Pochwal"]').first().click();// Click the "Pochwal" button
         cy.wait('@getCompetences', { timeout: 10000 }).its('response.statusCode').should('eq', 200);// Wait for the competences API response and verify it's successful
         
-        
+        // Open the competence select dropdown
         cy.get('#competence-select').click();
-        cy.get('input[role="search"][placeholder="Wyszukaj..."]',{ timeout: 10000 }).should('be.visible').type('Testowanie');
+        // Verify that there are 20 options
+        cy.get('gds-select-option', { timeout: 10000 }).should('have.length', 20);
+        // Search for "Empatia" 
+        cy.get('input[role="search"]').should("be.visible").type("Empatia");
+        // Verify that the listbox is visible
+        cy.get('div[role="listbox"]').should("be.visible");
+        // Verify that only 1 result matches the search
+        cy.get('gds-select-option').should("have.length", 1);
+        // Click the "Empatia" option
+        cy.contains("span", "Empatia").click();
+        // Verify that the input field shows the selected competence
+        cy.get('#competence-select').should('contain.value', 'Empatia');
 
+        // Open the competence select dropdown again
+        cy.get('#competence-select').click();
+        // Search for "Testowanie"
+        cy.get('input[role="search"]').should("be.visible").type("Testowanie");
         // Check if the listbox containing search results is visible
         cy.get('div[role="listbox"]', { timeout: 10000 }).should('be.visible');
 
