@@ -100,7 +100,7 @@ describe("Own Sent Praises HR View", () => {
 
     it("check sent praise menu option", () => {
         cy.get("#praise-menu").click();
-        cy.get("[data-test='praise-delete']").should("have.text", " Usuń");
+        cy.get("[data-test='praise-delete']").should("have.text", "Usuń");
     });
     
 });
