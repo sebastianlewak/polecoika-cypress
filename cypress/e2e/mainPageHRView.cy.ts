@@ -65,7 +65,7 @@ describe("Main page view for a logged HR", () => {
 
     it("check praise menu option", () => {
         cy.get("#praise-menu").click();
-        cy.get("[data-test='praise-delete']").should("have.text", " Usuń");
+        cy.get("[data-test='praise-delete']").should("have.text", "Usuń");
     });   
      
 });
