@@ -3,23 +3,23 @@ describe("Own Sent Praises HR View", () => {
     beforeEach(() => {
         cy.visit("/");
         cy.login({ login: "aleksandra.kwiatkowska", password: "aleksandra2024"});
-        cy.visit("/my-profile");
+        cy.get("[data-test='sent-recipient-name']").first().click();
         cy.intercept("/api/praise/find*").as("getSentPraises");
         cy.contains("button", " Wysłane ").click();
         cy.wait(["@getSentPraises"]);
     });
 
-    it("should load my-profile page", () => {
-        cy.url().should("contains", "/my-profile");
+    it("should load user-profile page", () => {
+        cy.url().should("includes", "/user-profile/");
     });
 
     it("should contain user profile praise list", () => {
-        cy.get("[data-test='my-profile-praise-list']").should("be.visible");
+        cy.get("[data-test='user-profile-praise-list']").should("be.visible");
     });
 
     it("should contain praise list title", () => {
         cy.get("[data-test='praise-title']").should("be.visible")
-            .contains("Twoje pochwały");
+            .contains("Pochwały");
     });
 
     it("should contain praise send button", () => {
@@ -100,7 +100,7 @@ describe("Own Sent Praises HR View", () => {
 
     it("check sent praise menu option", () => {
         cy.get("#praise-menu").click();
-        cy.get("[data-test='praise-delete']").should("have.text", " Usuń");
+        cy.get("[data-test='praise-delete']").should("have.text", "Usuń");
     });
     
 });
