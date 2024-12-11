@@ -56,13 +56,13 @@ describe("Search competence", () => {
     
         // Open the competence select dropdown and type some letters
         cy.get('#competence-select').click();
-        cy.get('input[role="search"]').should("be.visible").type("Emp");
+        cy.get('input[role="search"]').should("be.visible").type("Pro");
         // Verify that suggestions are visible
         cy.get('div[role="listbox"]').should("be.visible");
         cy.get('gds-select-option').should("have.length.greaterThan", 0);
     
-        // Clear the input
-        cy.get('input[role="search"]').clear();
+        // Delete letters one by one
+        cy.get('input[role="search"]').type("{backspace}{backspace}{backspace}");
         // Verify that the suggestions list is updated
         cy.get('div[role="listbox"]').should("be.visible");
         cy.get('gds-select-option').should("have.length", 20); // Verify the full list is displayed again
